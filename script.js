@@ -9,9 +9,9 @@ const winheight = window.innerHeight;
 const imgwidth = winheight*1.778;
 
 
-/*window.onbeforeunload = () => {  
+window.onbeforeunload = () => {  
   window.scrollTo(0, 0);  
-};*/
+};
 
 
 const currentFrame = index => (
@@ -78,7 +78,7 @@ function alerttt()
         document.getElementById("title_container").className= "title_container_off";
          body = document.getElementsByTagName("BODY")[0];
          body.style.transition = "background 0.5s 0.2s";
-         body.style.background = "white";
+         body.style.background = "#f2f2f2";
   } else  {
       document.getElementById("hero-lightpass").className= "fadeOn";
       document.getElementById("title_container").className= "title_container";
@@ -108,21 +108,44 @@ function timeline(){
     var x = valuePercnt/100;
     
     scale_1904 = document.getElementById("scaleBG");
-    scale_1943 = document.getElementById("scaleBG");
-    scale_1945 = document.getElementById("scaleBG");
-    scale_bg = document.getElementById("scaleBG");
+    young = document.getElementById("image02");
+    home = document.getElementById("image03");
+    newyork = document.getElementById("image01");
+    disc_1904 = document.getElementById("disc1904");
+    disc_1943 = document.getElementById("disc1943");
+    disc_1945 = document.getElementById("disc1945");
+     date_1904 = document.getElementById("date1904");
+     date_1943 = document.getElementById("date1943");
+     date_1945 = document.getElementById("date1945");
     if(valuePercnt >= 20 && valuePercnt<34){
         scale_1904.style.backgroundSize = "100% 17.1%";
         document.getElementById("timeline_container").style.opacity = "1";
+        newyork.style.opacity = "1";
+        young.style.transform = "translate3d(250px,160px,50px)";
+        young.style.opacity = "1";
+        home.style.opacity = "1";
+        home.style.transform = "translate3d(-300px,250px,50px)";
+        disc_1904.style.transform = "translate(0px)";
+        disc_1904.style.transitionDelay = "1s";
+        date_1904.style.transform = "translate(0px)";
     }else if(valuePercnt >= 34 && valuePercnt<48){
         scale_1904.style.backgroundSize = "100% 50.4%";
         document.getElementById("timeline_container").style.opacity = "1";
+        
     }else if(valuePercnt >= 48){
         scale_1904.style.backgroundSize = "100% 83.75%";
         document.getElementById("timeline_container").style.opacity = "1";
+        
     }else{
         scale_1904.style.backgroundSize = "100% 0%";
         document.getElementById("timeline_container").style.opacity = "0";
+        newyork.style.opacity = "0";
+        young.style.transform = "translate3d(170px,160px,50px)";
+        young.style.opacity = "0";
+        home.style.opacity = "0";
+        home.style.transform = "translate3d(-220px,250px,50px)";
+        disc_1904.style.transform = "translate(-260px)";
+        disc_1904.style.transitionDelay = "0s";
     }
 }    
 

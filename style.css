@@ -132,7 +132,8 @@ canvas.fadeOn{
     height: 100%;
     display: flex;
     opacity: 1;
-    
+    font-family:'Oswald', sans-serif;
+    font-weight:300;
     transition: opacity;
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
@@ -143,12 +144,12 @@ canvas.fadeOn{
 }#left_timeline_box>img{
     height: 100%;
     background: url(files/timeline_scale_bg.png);
-    background-color: grey;
+    background-color: #404040;
      background-repeat: no-repeat;
    background-size: 100% 0;
     transition: background-size;
     transition-duration: 1s;
-    transition-timing-function: ease-out;
+    transition-timing-function: ease-in;
 }#left_timeline_box>div{
     height: 100%;
     background-color: white;
@@ -175,23 +176,46 @@ canvas.fadeOn{
 }#image_container_01>img{
     
 }
-.image01{
+.image01{  /*Newyork*/
     width: auto;
-    height: 70vh;
+    height: 80vh;
     border: 10px solid white;
-    box-shadow: 10px 5px 5px 10px rgba(0,0,0,.5);
-    transform: rotateX(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
-    transition: all .4s;
+    box-shadow: 0px 5px 10px 1px rgba(0,0,0,.2);
+    transform: translate3d(80px, 0px, 0px);
+    transition: transform,opacity;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
     transform-style: preserve-3d;
     z-index: -5;
+    opacity: 0;
 
 }
-.image02{
+.image02{   /*young*/
     width: auto;
     height: 30vh;
-    border: 10px solid white;
-    box-shadow: 10px 5px 5px 10px rgba(0,0,0,.5);
-    transform: translate3d(50px,200px,50px);
+    padding: 2px;
+    background-color: #F57328;
+    border: 8px solid white;
+    box-shadow: 5px 5px 10px 3px rgba(0,0,0,.5);
+    transform: translate3d(250px,160px,50px);
+    transform-style: preserve-3d;
+    transition: transform,opacity;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    opacity: 0;
+}
+.image03{   /*home*/
+    width: auto;
+    height: 30vh;
+    padding: 2px;
+    background-color: #F57328;
+    border: 8px solid white;
+    box-shadow: 5px 5px 10px 3px rgba(0,0,0,.2);
+    transform: translate3d(-300px,250px,50px);
+    transition: transform,opacity;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    opacity: 0;
 }
 
 #timeline_cards{
@@ -234,15 +258,18 @@ canvas.fadeOn{
 }
 
 .date{
-    background: grey;
+    /*background: #F57328;*/
+    background: #404040;
     color: white;
     padding: 5px;
     height: 100%;
     display: flex;
     z-index: 1;
-    box-shadow: 1px 0px 2px 0px rgba(0,0,0,.1),3px 0px 9px 0px rgba(0,0,0,.3); 
+    /*box-shadow: 1px 0px 2px 0px rgba(0,0,0,.1),3px 0px 9px 0px rgba(0,0,0,.3); */
 }.date>div{margin: auto;}
 .discription{
+    font-family:'roboto', sans-serif;
+    font-weight:bold;
     display: flex;
     background-color: white;
     margin: auto;
@@ -250,7 +277,11 @@ canvas.fadeOn{
     padding: 5px;
     flex: 1;
     padding-right: 5px;
-    transform: translate(-260px)
+    transform: translate(-260px);
+    transition: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+    transition-delay: 1s;
 }.discription>div{margin: auto;}
 
 
