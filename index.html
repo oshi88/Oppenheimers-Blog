@@ -13,34 +13,47 @@
 
 </head>
 <body>
-    <div style="position: fixed;color: black;left: 50%;font-size: 50px;"><p id="screenHeight">...</p></div>
+    <div style="position: fixed;color: black;left: 50%;font-size: 50px; background-color: red;z-index: 20;"><p id="screenHeight">...</p></div>
 <section id="sec_01">
       
         <div class="title_container" id="title_container">
             <div id="title_name"><p>J. ROBERT OPPENHEIMER</p></div>
             <div id="title_discription"> <p>Los Alamos Lab Director,<br> Los Alamos, NM</p></div>
+            <div id="title_discription" style="margin-left: auto;margin-right: auto;"> <p>also known as</p></div>
             <div id="title_quote" class="title_quote_off"><p>“father of the Atomic bomb"</p></div>
         </div>
         <canvas id="hero-lightpass" class="fadeOn" style="z-index: -5;"/>        
         
 </section>
 
-<section id="sec_2">
+<section id="sec_2" style="opacity: 1;" >
         
-    <div id="timeline_container">
+    <div id="timeline_container" style="">
         
         <div id="left_timeline_box">
-            <img id="scaleBG" src="files/timeline_scale.png"/>
+            <img id="scaleBG" src="files/timeline_scale1.png"/>
             <div>
                 
             </div>
         </div>
         <div id="right_timeline_box">
-            <div id="image_container_01">
+            <div id="image_container_01" style="">
                 <img src="files/young.jpg" class="image02" id="image02"/>
                 <img src="files/newYork1.jpg" class="image01" id="image01"/>
                 <img src="files/home.jpg" class="image03" id="image03"/>
-        </div>
+            </div>
+            <div id="image_container_02">
+                <img src="files/losalamos.jpg" class="image06" id="image06"/>
+                <img src="files/2.jpg" class="image04" id="image04"/>
+                <img src="files/3.jpg" class="image05" id="image05"/>
+                
+            </div>
+            <div id="image_container_03">
+                <img src="files/Oppie.jpg" class="image09" id="image09"/>
+                <img src="files/resign.jpg" class="image07" id="image07"/>
+                <img src="files/joined.png" class="image08" id="image08"/>
+                
+            </div>
         </div>
         
         <div id="timeline_cards">
@@ -50,21 +63,32 @@
             </div>
             
             <div id="card_02">
-                <div class="date" id="date1943"><div><p>1943<br>-<br>1945</p></div></div>
-                <div class="discription" id="disc1943"><div>Director of the Los Alamos Laboratory.</div></div>
+                <div class="date2" id="date1943"><div><p>1943<br>-<br>1945</p></div></div>
+                <div class="discription2" id="disc1943"><div>Director of the Los Alamos Laboratory and THE MANHATTAN PROJECT</div></div>
             </div>
             
             <div id="card_03">
-                <div class="date" id="date1945"><div>1945</div></div>
-                <div class="discription" id="disc1945"><div>Resigns as director of Los Alamos Laboratory</div></div>
+                <div class="date3" id="date1945"><div>1945</div></div>
+                <div class="discription3" id="disc1945"><div>Resigns as director of Los Alamos Lab after Japan Bombing.</div></div>
             </div>
         </div>
         
     </div>
     
-
 </section>
+
+<section id="sec_3" style="background-color: black;">    
+    <div id="manhattan_title"><div id="darkBgLayer">
+        
+        <div id="mh_Title"><p id="mnTitle"><mark class="manhattan" id="mark_MH">THE MANHATTAN PROJECT</mark></p>
+        <p class="manhattan_disc">The Manhattan Project was a crash program, a no expense spared project, that sought to create the first atomic bomb. This was necessary because Allied intelligence forces had determined that Hitler and the Nazis were well on their way to creating a superweapon, the nuclear bomb. The Americans needed to get the atomic bomb before Hitler. If Hitler was able to get it first, the Nazis would win the war. Most of the work during the Manhattan Project was done at a secret laboratory in New Mexico, known as Los Alamos. The project was led by physicist <mark>J. Robert Oppenheimer</mark> and was a joint effort between the US, Canada, and the UK.</p></div>
+        <!--div id="mh_discription"><p class="manhattan_disc">The Manhattan Project was a crash program, a no expense spared project, that sought to create the first atomic bomb. This was necessary because Allied intelligence forces had determined that Hitler and the Nazis were well on their way to creating a superweapon, the nuclear bomb. The Americans needed to get the atomic bomb before Hitler. If Hitler was able to get it first, the Nazis would win the war. Most of the work during the Manhattan Project was done at a secret laboratory in New Mexico, known as Los Alamos. The project was led by physicist <mark>J. Robert Oppenheimer</mark> and was a joint effort between the US, Canada, and the UK.</p></div-->
+        
+        </div>
+    </div>
     
+    
+</section>
        
     
      
