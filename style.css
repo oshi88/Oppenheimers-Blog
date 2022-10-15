@@ -1,4 +1,4 @@
-html {height: 5000px}
+html {height: 1000vh}
 
 body {background: black;
     transition-timing-function: ease-out;
@@ -9,10 +9,11 @@ body {background: black;
 
 canvas.fadeOff{
   position:fixed;
-    width: 100%;
+  height: 100%;
   left:   0%;
   top:    0%;
   z-index: -2; 
+    overflow: hidden;
   animation-name: fadeOff;
     animation-duration: 0.5s; 
     animation-direction: normal;
@@ -21,12 +22,14 @@ canvas.fadeOff{
 }
 canvas.fadeOn{
   position:fixed;
-    width: 100%;
+  height: 100%;
   left:   0%;
   top:    0%;
   z-index: -2; 
   animation-name: fadeOn;
   animation-duration: 0.5s; 
+ animation-fill-mode: forwards; 
+    overflow: hidden;
 }
 
 
@@ -52,6 +55,19 @@ canvas.fadeOn{
     left: 60%;
     top: 50%;
     transition-timing-function:ease-in-out;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    padding: 10px;
+}
+@media only screen and (max-width: 600px) {
+.title_container,.title_container_off{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 40%;
+    top: 50%;
+    transition-timing-function:ease-in-out;
+}
 }
 .title_container_off{
     display: flex;
@@ -104,7 +120,7 @@ canvas.fadeOn{
     to {transform: translate(0,0)}
 }
 
-.title_quote_off{display: none;}
+.title_quote_off{display: none; opacity: 0;}
 .title_quote{
     border-bottom: 2px solid #F57328;
     padding-bottom: 7px;
@@ -141,10 +157,11 @@ canvas.fadeOn{
     font-family:'Oswald', sans-serif;
     font-weight:300;
     transition: opacity;
-    transition-duration: 1s;
-    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
+    transition-timing-function: ;
     z-index: -9999;
 }
+
 #left_timeline_box{
     display: flex;
     
@@ -478,110 +495,340 @@ canvas.fadeOn{
 
                                                                                         /*MANHATTAN*/
 #sec_3{
-    
+   
 }
-#manhattan_title{
-    background-image: url(files/Trinity_Detonation_blur%20v1.jpg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    width: 100%;
+#trinity_BG{
     
+    width: 100%;
     height: 100vh;
     position: fixed;
-    color: aliceblue;
-    font-family:'Oswald', sans-serif;
-    display: flex;
+    top: 0%;
+    z-index: -99;
     opacity: 0;
     transition: opacity;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in-out;
-    transition-delay: 0.5s;
-}
-#darkBgLayer{
-    display: flex;
-    width: 100%;
-    background: rgba(0,0,0,0.5);
-    flex-direction: column;
-}
-mark.manhattan{
-    background-color: rgba(0,0,0,0.2);
-    padding: 5px;
-    color: aliceblue;
-    transition: border,background-color;
+    transition-delay: 0s;
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
+}
+#trinity_BG_blurred{
+    
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0%;
+    z-index: -10;
+    opacity: 0;
+    transition: opacity;
     transition-delay: 0s;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}
+#textMHP{
+    color: white;
+    font-family: "oswald" ;
+    font-weight: bold;
+    font-size: 80px;
+    align-items:center;
+    justify-content: center;
+    margin: auto;
+    z-index: 2;
+    display: flex; 
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    transform: translate(0,0);
+    opacity: 0;
+    text-align: center;
+}#textMHP>p{
+    background-color: rgba(0,0,0,0); padding: 10px;border-radius: 10px;
+    line-height: 1.6;
 }
 
-#mh_Title{
-    height: 100%;
-    width: 100%; 
+mark.manhattan_mark{
+    background-color: rgba(0,0,0,0.6);
+    border: 4px solid;
+    
+}
+
+#discContainer{
+    background-color: aliceblue;
+    width: 100%;
+    height: 100vh;
+}
+
+#discMHP{
+    color: white;
+    border-top: 3px solid white;
+    width: 100%;
+    margin: auto;
+    text-align: justify;
+    font-family: "roboto" ;
+    font-weight: normal;
+    line-height: 1.2;
+    align-items: center;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 7vw;
-    transition: height,font-size;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in-out;
+    font-size: 30px;
+    position: relative;
+    transform: translate(0,0);
+    opacity: 0;
+    transition: opacity;
     transition-delay: 0s;
-   
-}#mh_Title>p{
-    transition: opacity;
-    transition-duration: 1s;
+    transition-duration: 0.2s;
     transition-timing-function: ease-out;
-    transition-delay: 1s;
-    opacity: ;
-}
-
-#mh_discription{
-    flex: 1;
-    opacity: 1;
-    transition: opacity;
-    transition-duration: 1s;
-    transition-timing-function: ease-out;
-    transition-delay: 0.5s;
-}
-.manhattan_disc{
+    background-color: rgba(10,10,10,1);
+}#discMHP>p{
     width: 80%;
-    height: 80%;
-    font-size: 2.5vw;
-    font-weight: 400;
-    font-family: 'roboto';
-    background-color: rgba(0,0,0,0.5);
-    padding: 10px;
-    line-height: 1.2;
+    margin: auto;
+    background-color: aliceblue;
+    padding: 20px;
+    background-color: rgba(0,0,0,0);
+    border-radius: 10px;
+}
+#engineer_img_container{
+    width: 80%;
+    border: 3px solid white;
+    padding: 4px;
+    background-color: firebrick;
+    border-radius: 30px;
+    width: 54%;
+    overflow: hidden;
+    display: flex;
     
 }
+@media only screen and (max-width: 1200px) {
+    #engineer_img_container{
+    transform: translate(0px,-10px);
+    border: 5px solid;
+    width: 80%;
+    overflow: hidden;
+    display: flex;
+    border-radius: 0px;
+    border-radius: 30px;
+}
+}
+#engineer_img_container_v2{
+    
+    border: 3px solid white;
+    padding: 4px;
+    background-color: firebrick;
+    border-radius: 30px;
+    width: 54%;
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 20px;
+}
+@media only screen and (max-width: 1200px) {
+    #engineer_img_container_v2{ 
+    border: 5px solid;
+    width: 80%;
+    overflow: hidden;
+    display: flex;
+    border-radius: 0px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+}
+
+#mh_engineers{
+   transition: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+    width: 100%;
+    height: auto;
+    border-radius: 25px;
+    
+}
+@media only screen and (min-width: 1000px) {
+    #mh_engineers:hover{
+    transform: scale(1.1,1.1);
+}
+}
+
 mark{
-    margin: 4px;
-    font-weight: bold;
-    background-color: rgba(0,0,0,0.3);
+    background-color: firebrick;
     color: aliceblue;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+}
+
+.discMHP_v1{
+    transform: translate(0,0px);
+    z-index: -2;
 }
 
 
+#japan_container{
+    background-color: white;
+    width: 100%;
+    height: auto;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px; 
+    opacity: 0;
+    border-top: 3px solid firebrick;
+}
+#japan_titile_container{
+    margin: auto;
+    font-family: "oswald" ;
+    font-weight: normal;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.2;
+    padding-bottom: 20px;
+    
+    width: 100%;
+    padding-top: 20px;
+}
+#japan_titile{
+    font-family: "oswald" ;
+    font-weight: bold;
+    font-size: 70px;
+    color: rgb(50,50,50);
+}
+#Japan_img_container{
+    display: flex;
+    width: 100%;
+    padding-bottom: 20px;
+}#Japan_img_container>img{
+    width: 50%;
+    margin: auto;
+    border: 2px solid black;
+    padding: 5px;
+}
+
+#bomb_container{
+    display: flex;
+    width: 100%;
+    background-color: white;
+    padding-bottom: 10px;
+    
+}
+#hiroshima_side{
+    flex: 1;
+    width: 50%;
+    background-color: white;
+    border-right: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+}#hiroshima_side>p{
+    font-family: roboto;
+    font-weight: normal;
+    text-align: justify;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    line-height: 1.3
+}
+@media only screen and (max-width: 1000px) {
+   #hiroshima_side>p{
+    display: none;
+}
+}
+
+h1{
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    font-family: roboto;
+    font-weight: bold;
+    font-size: 2vw;
+
+}
+
+#hiroshima_side>img{width: 60%;
+margin-left: auto;
+margin-right: auto;
+padding-top: 10px;
+}
+
+#nagashaki_side{
+    flex: 1;
+    width: 50%;
+    background-color: white;
+    border-left: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+}
+#nagashaki_side>img{
+    width: 60%;
+margin-left: auto;
+margin-right: auto;
+padding-top: 10px;
+}
+#nagashaki_side>p{
+    font-family: roboto;
+    font-weight: normal;
+    text-align: justify;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    line-height: 1.3
+}
+
+@media only screen and (max-width: 1000px) {
+   #nagashaki_side>p{
+    display: none;
+}
+}
 
 
+#littleBoy{
+    width: 40%;
+    flex: 1;
+    display: flex;
+    flex-direction: column; 
+    margin-left: auto;
+    margin-right: auto;
+    height: 40%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}#littleBoy>p{
+    font-family: roboto;
+    background-color: rgba(0,0,0,0.8);
+    width: 100%;
+    color: white;
+    padding: 10px;  
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.2;
+}
 
+#fatman{
+    width: 40%;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}#fatman>p{
+    font-family: roboto;
+    background-color: rgba(0,0,0,0.8);
+    width: 100%;
+    color: white;
+    padding: 10px;  
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.2;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.repo-link{
+    display: flex;
+    width: 100%;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    height: 200px
+}
 
 
 

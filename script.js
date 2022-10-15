@@ -3,7 +3,7 @@ const canvas = document.getElementById("hero-lightpass");
 const context = canvas.getContext("2d");
 
 const frameCount = 57;
-const docheight = "5000";
+const docheight = document.documentElement.scrollHeight;
 
 const winheight = window.innerHeight;
 const imgwidth = winheight*1.778;
@@ -14,22 +14,23 @@ const lightRed = "#d04a4a";
 const dimRed = "#98483d";
 const offWhite = "#f2f2f2";
 
-/*window.onbeforeunload = () => {             
+window.onbeforeunload = () => {             
   window.scrollTo(0, 0);  
-};*/
-
-const scroller = window.scroll;
-function scrollStop() {
-  scroller.disabled = true;
-  setTimeout(()=>{
-    scroller.disabled = false;
-    console.log('Button Activated')}, 5000)
 }
 
-const currentFrame = index => (
-  `files/imges/${index.toString().padStart(5, '0')}.jpg`
-    /*`C:/Users/Oshi/Desktop/imageScroll/img_full/${index.toString().padStart(5, '0')}.jpg`*/
-)
+
+
+/*const currentFrame = index => ( 
+    `files/imges/${index.toString().padStart(5, '0')}.jpg`
+)*/
+
+function currentFrame(index){
+    if(window.innerWidth<800){
+        return `files/imges_small/${index.toString().padStart(5, '0')}.jpg`;
+    }else{
+        return `files/imges/${index.toString().padStart(5, '0')}.jpg`;
+    }
+}
 
 const preloadImages = () => {
   for (let i = 1; i < frameCount; i++) {
@@ -40,8 +41,7 @@ const preloadImages = () => {
 
 const img = new Image()
 img.src = currentFrame(1);
-/*canvas.width=774;
-canvas.height=1000;*/
+
 canvas.height = winheight;
 canvas.width = imgwidth;
 
@@ -54,7 +54,7 @@ const updateImage = index => {
   context.drawImage(img, 0, 0,);
 }
 
-window.onscroll = function() {main_scroll_values();alerttt();timeline();manhattan();}
+window.onscroll = function() {main_scroll_values();alerttt();timeline();trinityBlured();}
 
 function main_scroll_values() {  
   var scrollTop = window.pageYOffset;   
@@ -66,43 +66,46 @@ function main_scroll_values() {
     Math.ceil(y * frameCount)
     
   );
-  console.log("working");
+  console.log("Canvas Loaded");
   requestAnimationFrame(() => updateImage(frameIndex + 1))
 };
 
 preloadImages()
     
-
+window.onresize = function(){scrollReset();}
+function scrollReset(){
+    window.scrollTo(0, 0); 
+}
 
 function alerttt(){   
     var scroll = window.pageYOffset;
     var value = scroll / (docheight - winheight);
     var valuePercnt = Math.round(value*100);
     var x = valuePercnt/100;
- document.getElementById("screenHeight").innerHTML = valuePercnt;
+ document.getElementById("screenHeight").innerHTML = valuePercnt +"% " + "- " + scroll + "px" + x;
     if (valuePercnt >= 15){
-        scrollStop();
+        
           document.getElementById("hero-lightpass").className= "fadeOff";
         document.getElementById("title_container").className= "title_container_off";
          body = document.getElementsByTagName("BODY")[0];
-         body.style.transition = "background 0.5s 0.2s";
+         body.style.transition = "background 0.5s";
          body.style.background = offWhite;
   } else  {
       document.getElementById("hero-lightpass").className= "fadeOn";
       document.getElementById("title_container").className= "title_container";
       body = document.getElementsByTagName("BODY")[0];
-      body.style.transition = "background 0.6 0s";
+      body.style.transition = "background 0.5s";
       body.style.background = "black";
   }
  if(valuePercnt >= 1){
      elem = document.getElementById("title_container");
      elem.style.transition = "top 0.6s 0s";
-     elem.style.top = "30%";
+     elem.style.top = "35%";
      document.getElementById("title_quote").style = "display: flex;";
      document.getElementById("title_quote").className = "title_quote";
  }else{elem = document.getElementById("title_container");
      elem.style.transition = "top 0.6s 0s";
-     elem.style.top = "50%";
+     elem.style.top = "40%";
        document.getElementById("title_quote").className = "title_quote_off";
       }
    
@@ -134,7 +137,9 @@ function timeline(){
     resign = document.getElementById("image09");
     joined = document.getElementById("image07");
     extraIMG = document.getElementById("image08");
-    if(valuePercnt >= 15 && valuePercnt<22){                                                /*..1904..*/
+    if(valuePercnt >= 15 && valuePercnt<22){                                                
+        
+        /*..1904..*/
     
         scale_1904.style.backgroundSize = "100% 17.1%";
         document.getElementById("timeline_container").style.opacity = "1";
@@ -201,23 +206,25 @@ function timeline(){
             joined.style.transform = "translate3d(220px, 0px, 0px)";
             resign.style.transform = "translate3d(310px,370px,150px)";
             extraIMG.style.transform = "translate3d(110px,150px,100px)";
+            
+            
+            Trinity_BG = document.getElementById("trinity_BG").style.opacity = "0";
+            document.getElementById("trinity_BG_blurred").style.opacity = "0";
+            document.getElementById("textMHP").style.position= "fixed";
         }
-        else if(valuePercnt>36 && valuePercnt<100){
+        else if(valuePercnt===37){
             joined.style.transform = "translate3d(220px, -1100px, 0px)";
             resign.style.transform = "translate3d(310px,-1100px,150px)";
             extraIMG.style.transform = "translate3d(110px,-1100px,100px)";
             document.getElementById("sec_2").style.opacity = "0";
-            
+            manhattan();
+            console.log(ScrollArray);
         }
     else{
         scale_1904.style.backgroundSize = "100% 0%";
         document.getElementById("timeline_container").style.opacity = "0";
         
-        /*newyork.style.opacity = "0";
-        young.style.transform = "translate3d(300px,160px,100px)";
-        home.style.transform = "translate3d(-150px,250px,150px)";
-        young.style.opacity = "0";
-        home.style.opacity = "0";*/
+      
         
         disc_1904.style.transform = "translate(-265px)";
         disc_1904.style.transitionDelay = "0s";
@@ -227,54 +234,83 @@ function timeline(){
                 date_1943.style.transitionDelay = "0s";
                 disc_1943.style.transitionDelay = "0s";
                 disc_1943.style.transform = "translate(-265px)";     
-                            date_1945.style.background = Darkgrey;
+                    date_1945.style.background = Darkgrey;
         
     }
    
 }    
 
+function makeArray(count) {
+   var result = [];
+  
+      for(var i = 0; i < count; i++) {
+         result.push(i);
+      }
+   
+   return result;
+}
+var ScrollArray = makeArray(101);
+
 function manhattan(){
+    
     var scroll = window.pageYOffset;
     var value = scroll / (docheight - winheight);
     var valuePercnt = Math.round(value*100);
-    
+    var transform_end = scroll+(winheight);
+    var transform_middle = scroll+(winheight/2);
     section_3 = document.getElementById("sec_3");
-    manhattanBG = document.getElementById("manhattan_title");
-    mn_Title = document.getElementById("mh_Title");
-    mnTitle_P = document.getElementById("mnTitle");
-    mark_MN = document.getElementById("mark_MH");
+    MH_title = document.getElementById("textMHP");
+    MH_disc = document.getElementById("discMHP");
+    Trinity_BG = document.getElementById("trinity_BG");
     
-    mh_discription = document.getElementById("mh_discription")
-    if(valuePercnt>=37 && valuePercnt<=40){
-        manhattanBG.style.opacity = "1";
-        manhattanBG.style.transitionDelay = "0.3s";
-        mnTitle_P.style.opacity = "1";
-        mnTitle_P.style.transitionDelay = "0.5s";
-        
-        mn_Title.style.height = "100%";
-        mn_Title.style.fontSize = "7vw";
-        
-        mark_MN.style.backgroundColor = "rgba(0,0,0,0.2)";
-       /* mh_discription.style.display = "none";
-            mh_discription.style.opacity = "0";*/
-    }  
-        else if(valuePercnt>40){
-            mn_Title.style.height = "12%";
-            mn_Title.style.fontSize = "2.5vw";
-            /*mark_MN.style.backgroundColor = "rgba(0,0,0,0.0)";
-            
-            mh_discription.style.display = "";
-            mh_discription.style.opacity = "1";*/
-        }
-    else{
-        manhattanBG.style.opacity = "0";
-        manhattanBG.style.transitionDelay = "0s";
-        mnTitle_P.style.opacity = "0";
-        mnTitle_P.style.transitionDelay = "0s";
-    }
+    Trinity_BG.style.opacity = "1";
+    MH_title.style.opacity = "1";
+   
+    MH_title.style.transform = 'translate(0,' + transform_middle +'px)';
+    
+    MH_disc.style.transform = 'translate(0,' + transform_middle +'px)';
+    
+    MH_disc.style.opacity = "1";
+    
+    trinityBlured();
+    japanBombs();
 }
 
+function trinityBlured(){
+    var scroll = window.pageYOffset;
+    var value = scroll / (docheight - winheight);
+    var valuePercnt = Math.round(value*100);
+    Trinity_BG = document.getElementById("trinity_BG");
+    MH_title = document.getElementById("textMHP");
+    
+    if(valuePercnt>35 && valuePercnt<60){
+        Trinity_BG.style.opacity = "1";
+    }else{
+        Trinity_BG.style.opacity = "0";
+        
+    }
+   
+}
 
+function japanBombs(){
+    
+    var scroll = window.pageYOffset;
+    var value = scroll / (docheight - winheight);
+    var valuePercnt = Math.round(value*100);
+    var transform_middle = scroll+(winheight/2);
+    
+    section_4 = document.getElementById("sec_4");
+    japan_container = document.getElementById("japan_container");
+    japan_title_container = document.getElementById("japan_titile_container");
+    
+    
+   
+    
+    japan_container.style.transform = 'translate(0,' + transform_middle +'px)';
+   japan_container.style.opacity = "1";
+   
+    
+}
 
 
 

@@ -3,17 +3,33 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
-  <title>CodePen - Apple AirPods Pro Animation (final demo)</title>
+  <title>J. Robert Oppenheimer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     
 <link rel="stylesheet" href="./style.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
+    <style>
+    .button {
+  background-color: white;
+  border: none;
+  color: rgb(60,60,60);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+        font-family: roboto;
+        font-weight: bold;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+    </style>
 <body>
-    <div style="position: fixed;color: black;left: 50%;font-size: 50px; background-color: red;z-index: 20;"><p id="screenHeight">...</p></div>
+    <div style="position: fixed;color: black;left: 50%;font-size: 50px; background-color: red;z-index: 20;opacity: 0;"><p id="screenHeight">...</p></div>
 <section id="sec_01">
       
         <div class="title_container" id="title_container">
@@ -22,7 +38,7 @@
             <div id="title_discription" style="margin-left: auto;margin-right: auto;"> <p>also known as</p></div>
             <div id="title_quote" class="title_quote_off"><p>“father of the Atomic bomb"</p></div>
         </div>
-        <canvas id="hero-lightpass" class="fadeOn" style="z-index: -5;"/>        
+    <div style="width: 100%; background-color: black;"><canvas id="hero-lightpass" class="fadeOn" style="z-index: -5;"/></div>        
         
 </section>
 
@@ -51,8 +67,7 @@
             <div id="image_container_03">
                 <img src="files/Oppie.jpg" class="image09" id="image09"/>
                 <img src="files/resign.jpg" class="image07" id="image07"/>
-                <img src="files/joined.png" class="image08" id="image08"/>
-                
+                <img src="files/joined.png" class="image08" id="image08"/>  
             </div>
         </div>
         
@@ -77,20 +92,47 @@
     
 </section>
 
-<section id="sec_3" style="background-color: black;">    
-    <div id="manhattan_title"><div id="darkBgLayer">
-        
-        <div id="mh_Title"><p id="mnTitle"><mark class="manhattan" id="mark_MH">THE MANHATTAN PROJECT</mark></p>
-        <p class="manhattan_disc">The Manhattan Project was a crash program, a no expense spared project, that sought to create the first atomic bomb. This was necessary because Allied intelligence forces had determined that Hitler and the Nazis were well on their way to creating a superweapon, the nuclear bomb. The Americans needed to get the atomic bomb before Hitler. If Hitler was able to get it first, the Nazis would win the war. Most of the work during the Manhattan Project was done at a secret laboratory in New Mexico, known as Los Alamos. The project was led by physicist <mark>J. Robert Oppenheimer</mark> and was a joint effort between the US, Canada, and the UK.</p></div>
-        <!--div id="mh_discription"><p class="manhattan_disc">The Manhattan Project was a crash program, a no expense spared project, that sought to create the first atomic bomb. This was necessary because Allied intelligence forces had determined that Hitler and the Nazis were well on their way to creating a superweapon, the nuclear bomb. The Americans needed to get the atomic bomb before Hitler. If Hitler was able to get it first, the Nazis would win the war. Most of the work during the Manhattan Project was done at a secret laboratory in New Mexico, known as Los Alamos. The project was led by physicist <mark>J. Robert Oppenheimer</mark> and was a joint effort between the US, Canada, and the UK.</p></div-->
-        
-        </div>
+<section id="sec_3">    
+   <img id="trinity_BG" style="opacity: 0;" src="files/Trinity_Detonation%20v1.jpg" />
+    <!--img id="trinity_BG_blurred" src="files/Trinity_Detonation_blur%20v1.jpg"/-->
+    <div id="textMHP"><p style="" id="textMHP_p">THE <mark class="manhattan_mark">MANHATTAN</mark> PROJECT</p><br></div>
+    <div id="discMHP"><p>The Manhattan Project was a crash program, a no expense spared project, that sought to create the first atomic bomb. This was necessary because Allied intelligence forces had determined that <mark>Hitler</mark> and the Nazis were well on their way to creating a superweapon, the nuclear bomb. The Americans needed to get the atomic bomb before Hitler. If Hitler was able to get it first, the Nazis would win the war. Most of the work during the Manhattan Project was done at a secret laboratory in New Mexico, known as Los Alamos. The project was led by physicist <mark>J. Robert Oppenheimer</mark> and was a joint effort between the US, Canada, and the UK.</p><div id="engineer_img_container">
+    <img id="mh_engineers" src="files/manhattan_engineers.jpg"/>
     </div>
-    
-    
+        <p class="discMHP_v1">By 1945 the bomb was ready. On July, Nuclear bomb called <mark>"Gadget"</mark> was tested. The bomb exploded with 20 kilotons of force, exceeding all predictions.</p>
+        <div id="engineer_img_container_v2">
+    <img id="mh_engineers" src="files/Gadget%20Tower_1.jpg">
+    </div>
+    </div>
 </section>
        
+<section id="sec_4">
+
+    <div id="japan_container">
+        <div id="japan_titile_container"><p id="japan_titile">JAPAN BOMBING</p><p>(The bombs dropped on Hiroshima and Nagasaki remain the only two nuclear weapons to ever be used in combat)</p></div>
+        
+        <!--div id="Japan_img_container"> <img id="hiroshima" src="files/hiroshima.webp"> </div-->
+        <div id="bomb_container"> 
+            <div id="hiroshima_side"> <h1>HIROSHIMA</h1> <img src="files/hiroshima_v1.jpg"> <p>On August 6, 1945, the United States dropped an atomic bomb on the city of Hiroshima. The bomb was known as <mark>"Little Boy"</mark>, a uranium gun-type bomb that exploded with about thirteen kilotons of force. At the time of the bombing, Hiroshima was home to 280,000-290,000 civilians as well as 43,000 soldiers. Between 90,000 and 166,000 people are believed to have died from the bomb in the four-month period following the explosion. The U.S. Department of Energy has estimated that after five years there were perhaps 200,000 or more fatalities as a result of the bombing, while the city of Hiroshima has estimated that 237,000 people were killed directly or indirectly by the bomb's effects, including burns, radiation sickness, and cancer.</p>
+             <div id="littleBoy"><img id="littleBoy_bomb" alt="Little Boy Nuclear Bomb" src="files/little_boy.jpg"><p style="font-weight: bold;text-align: center;">LITTLE BOY</p> <p>• Weight: 9,700 lbs<br>
+                • Lenght: 10ft.; Diameter: 28 in.<br>• Force: 15,000 tons of TNT equivalent</p>
+                
+            </div>
+            </div>
+            <div id="nagashaki_side"> <h1>NAGASAKI</h1> <img src="files/nagasaki_v1.jpg"><p>Three days after the United States dropped an atomic bomb on Hiroshima, a second atomic bomb was dropped on Nagasaki on August 9 – a 21-kiloton plutonium device known as <mark>"Fat Man”</mark>. On the day of the bombing, an estimated 263,000 were in Nagasaki, including 240,000 Japanese residents, 9,000 Japanese soldiers, and 400 prisoners of war. Prior to August 9, Nagasaki had been the target of small scale bombing by the United States. Though the damage from these bombings was relatively small, it created considerable concern in Nagasaki and many people were evacuated to rural areas for safety, thus reducing the population in the city at the time of the nuclear attack. It is estimated that between 40,000 and 75,000 people died immediately.</p>
+            <div id="fatman"><img id="fatman_bomb" alt="Fatman Nuclear Bomb" src="files/fatman_v2.jpg"><p style="font-weight: bold;text-align: center;">FATMAN</p> <p>• Weight: 10,800 lbs<br>
+                • Lenght: 10ft 8 in; Diameter: 60 in.<br>• Force: 21,000 tons of TNT equivalent</p>
+            
+            </div>
+            </div>
+        </div>
+        <div class="repo-link">
+        <a href="https://github.com/oshi88/Oppenheimers-Blog" class="button" target="_blank">Repo Link</a>
+        </div>
+        
+    </div>
     
+</section>    
      
     
   
